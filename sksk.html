@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Only BOT Zone</title>
+  </head>
+  <body>
+    <h1>Multiple Choice Form</h1>
+    <form id="quizForm">
+      <fieldset>
+        <legend>Name:</legend>
+        <label>
+          <input type="text" name="q4" />
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Gender:</legend>
+        <label> <input type="radio" name="q1" value="Male" /> Male </label>
+        <label> <input type="radio" name="q1" value="Female" /> Female </label>
+        <label> <input type="radio" name="q1" value="Binary" /> Binary </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Blood Group:</legend>
+        <label>
+          <input type="text" name="bloodG" />
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Dominant Hand :</legend>
+        <label>
+          <input type="radio" name="q2" value="Right" /> Right-Handed
+        </label>
+        <label>
+          <input type="radio" name="q2" value="Left" /> Left-Handed
+        </label>
+        <label>
+          <input type="radio" name="q2" value="Ambi" /> Ambidextrous
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>IQ:</legend>
+        <label>
+          <input type="text" name="iq" />
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>EQ:</legend>
+        <label>
+          <input type="text" name="eq" />
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>AQ:</legend>
+        <label>
+          <input type="text" name="aq" />
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Serial Number:</legend>
+        <label>
+          <input type="text" name="sno" />
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>ER = EPR :</legend>
+        <label> <input type="radio" name="q3" value="T" /> True </label>
+        <label> <input type="radio" name="q3" value="F" /> False </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Real? :</legend>
+        <label> <input type="radio" name="q5" value="T" /> Yes </label>
+        <label> <input type="radio" name="q5" value="F" /> No </label>
+      </fieldset>
+
+      <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+      // JavaScript for form validation
+      document
+        .getElementById("quizForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Define the correct answers for each question
+          const correctAnswers = {
+            q1: "Binary",
+            q2: "Ambi",
+            q3: "F",
+          };
+
+          // Initialize a variable to keep track of the score
+          let score = 0;
+
+          // Loop through each question and check if the selected option is correct
+          for (const question in correctAnswers) {
+            const selectedOption = document.querySelector(
+              `input[name="${question}"]:checked`
+            );
+            if (selectedOption) {
+              const selectedValue = selectedOption.value;
+              if (selectedValue === correctAnswers[question]) {
+                score++;
+              }
+            }
+          }
+          const bloodGroup = document.querySelector(
+            'input[name="bloodG"]'
+          ).value;
+          const EQ = document.querySelector('input[name="eq"]').value;
+
+          // Check if all questions were answered correctly
+          if (
+            score === Object.keys(correctAnswers).length &&
+            bloodGroup.trim().length === 0 &&
+            EQ.trim() === "0"
+          ) {
+            alert(
+              `Congratulations! You scored ${score} out of ${
+                Object.keys(correctAnswers).length
+              }`
+            );
+          } else {
+            alert(
+              "Sorry, you did not answer all questions correctly. The form will be reset."
+            );
+            document.getElementById("quizForm").reset();
+          }
+        });
+    </script>
+  </body>
+</html>
