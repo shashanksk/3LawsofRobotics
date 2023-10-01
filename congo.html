@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Congratulations & Confetti</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #333; /* Background color */
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      h1 {
+        font-size: 36px; /* Adjust font size to "large" */
+        font-family: Arial, sans-serif;
+        color: transparent;
+        white-space: nowrap;
+        animation: textFade 2s ease-in-out alternate infinite;
+      }
+
+      .confetti-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .confetti {
+        position: absolute;
+        width: 10px; /* Adjust the size of the confetti */
+        height: 10px;
+        opacity: 1;
+        animation: fall 2s linear infinite, colorChange 2s infinite alternate;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(100vh);
+        }
+      }
+
+      @keyframes colorChange {
+        0%,
+        100% {
+          background-color: #f06; /* Start and end color */
+        }
+        50% {
+          background-color: #0f6; /* Midway color */
+        }
+      }
+
+      @keyframes textFade {
+        0%,
+        100% {
+          color: black;
+        }
+        50% {
+          color: white;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <audio autoplay>
+      <source
+        src="Five Nights at Freddy's_ Sister Location OST (shift complete song)-2.mp3"
+        type="audio/mpeg"
+      />
+      Your browser does not support the audio element.
+    </audio>
+    <h1>Congratulations, you are one of us</h1>
+    <div class="confetti-container">
+      <!-- Confetti elements will be generated here -->
+    </div>
+    <script>
+      // Number of confetti pieces
+      const numConfetti = 50; // You can change this to the desired number
+
+      // Get the confetti container
+      const container = document.querySelector(".confetti-container");
+
+      // Function to generate a random number within a range
+      function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      // Function to create a confetti element
+      function createConfetti() {
+        const confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left = `${getRandomNumber(0, 100)}vw`; // Random horizontal position
+        confetti.style.animationDuration = `${getRandomNumber(2, 4)}s`; // Random animation duration
+        container.appendChild(confetti);
+      }
+
+      // Generate the specified number of confetti pieces
+      for (let i = 0; i < numConfetti; i++) {
+        createConfetti();
+      }
+    </script>
+  </body>
+</html>
