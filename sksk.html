@@ -132,6 +132,7 @@
             // Check if all questions were answered correctly
             if (score === Object.keys(correctAnswers).length && bloodGroup.trim().length === 0 && EQ.trim() === "0") {
                 alert(`Congratulations! You scored ${score} out of ${Object.keys(correctAnswers).length}`);
+                window.location.href = "congo.html";
             } else {
                 alert('Sorry, you did not answer all questions correctly. The form will be reset.');
                 document.getElementById('quizForm').reset();

@@ -9,7 +9,7 @@ document.getElementById("submitBtn").addEventListener("click", function () {
 
     if (enteredPassword === correctPassword) {
         // Password is correct, open the link
-        window.location.href = "congo.html"; // Replace with your desired link
+        window.location.href = "Captcha-master/index.html"; // Replace with your desired link
     } else {
         // Password is incorrect, display an error message
         document.getElementById("errorMessage").textContent = "Incorrect password. Please try again.";
