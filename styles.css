@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'ktscript';
+    src: url(kt-script-ie/kt-script-ie.ttf);
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative; /* Add this line */
+}
+
+.content {
+    max-width: 800px;
+    padding: 20px;
+    font-family: 'ktscript' , sans-serif;
+}
+
+.text{
+    font-family: 'ktscript', sans-serif;
+}
+
+.watermark {
+    font-size: 48px;
+    opacity: 0.2; /* Adjust the opacity as needed */
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+
+/* Style for the black button with white borders */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+/* Hover effect */
+.button:hover {
+    background-color: white;
+    color: black;
+    border-color: black;
+}
